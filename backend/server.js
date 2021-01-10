@@ -1,4 +1,4 @@
-const express = require('express');
+	const express = require('express');
 const mongoose = require('mongoose');
 const { MONGO_URI } = require('./config');
 
@@ -9,6 +9,11 @@ const app = express();
 
 // BodyParser Middleware
 app.use(express.json());
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
 //YOP3lKyYuqIe0gSk
 
 //Connect to MongoDB
